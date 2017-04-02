@@ -10,7 +10,7 @@ WORKDIR ${HOME}
 RUN yum install -y --setopt=tsflags=nodocs \
                 java-1.8.0-openjdk java-1.8.0-openjdk-devel docker jq && \
     yum clean all
-RUN yum install wget -y && wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq && cp jq /usr/bin
+RUN yum install wget -y && wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq && cp jq /usr/bin && yum clean all
 ADD install.sh ${HOME}/
 RUN ${HOME}/install.sh
 
